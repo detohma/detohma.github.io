@@ -885,33 +885,3 @@ ul.ListOfSongs{
     }
 
 }
-
-
-/*黒ページ用。*/
-#footer_black {
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-#footer_black ul {
-    list-style: none;
-}
-
-#home-page-black::before{
-    background-color: #191919;
-    background-image: none; 
-    opacity: 1
-}
-#home-page-black{
-    font-family: "Noto Serif JP";
-}
-
-#home-page-black .section{
-    margin: 1rem 0;
-    border: 1px solid #999;
-    outline: 0.5px solid #999;
-    outline-offset: 4px;
-    border-radius: 10px;
-    padding: 0 2rem 1rem 2rem;
-    background-color: #fff;
-}
