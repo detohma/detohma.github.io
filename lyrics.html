@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="detohma Lyrics">
+    <link rel="icon" type="image/svg+xml" href="images/detohma_logo_round.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics | detohma</title>
+
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <!-- Google Font ...(Noto Sans JP, Noto Serif JP, DM Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ヘッダー読み込みエリア -->
+    <div id="header-container"></div>
+
+    <div class="lyricPageBody">
+        <main class="section lyricSection">
+            <div class="titleLine">
+                <!-- ここにJSで画像とタイトルが入ります -->
+                <h2><img id="jacket-image" src="" class="song-jacket-icon" alt=""><span id="song-title"></span></h2>
+                <p class="credit" id="song-credit"></p>
+            </div>
+            
+            <!-- 翻訳ボタン (初期状態はhidden、JSで制御) -->
+            <button id="trans-btn" class="toggle-btn hidden" onclick="toggleTranslation()" aria-expanded="false">Show English Translation</button>
+            
+            <div class="lyricsAndTranslation">
+                <div class="JapaneseLyrics">
+                    <!-- 日本語歌詞 -->
+                    <p class="lyrics" id="lyrics-ja"></p>
+                </div>
+                
+                <div id="translation" class="translation hidden cardTranslation">
+                    <p class="creditForTranslation" id="translator-credit"></p>
+                    <!-- 英訳歌詞 -->
+                    <p class="lyrics" id="lyrics-en"></p>
+                </div>
+            </div>
+
+            <p><a class="backToHome" href="index.html">Back to Home</a></p>
+        </main>
+
+        <aside class="sidebar-content-for-lyrics">
+            <div id="songListPlaceholder"></div> 
+        </aside>
+    </div>
+
+    <!-- フッター -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li><span>&copy; 2023 detohma</span></li>
+        </ul>
+    </footer>
+
+    <!-- 歌詞データを読み込むスクリプト -->
+    <script src="js/songs.js"></script>
+
+    <!-- JavaScript Control -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. ヘッダー読み込み
+            fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+                initScrollEvent();
+            });
+
+            // 2. ソングリスト読み込み
+            fetch("songlist.html")
+            .then(response => response.text())
+            .then(data => {
+                const placeholder = document.getElementById("songListPlaceholder");
+                if(placeholder){
+                    placeholder.innerHTML = data;
+                }
+            });
+
+            // 3. URLパラメータから曲データをロード
+            loadSongData();
+
+            // コピー禁止設定を実行
+            disableCopying();
+        });
+
+        function loadSongData() {
+            // URLの ?id=xxxx を取得
+            const params = new URLSearchParams(window.location.search);
+            const songId = params.get('id');
+
+            // songs.js からデータを検索
+            const song = songDatabase[songId];
+
+            if (song) {
+                // ページタイトルの書き換え
+                document.title = `${song.title} | detohma`;
+
+                // データの流し込み
+                document.getElementById('jacket-image').src = song.image;
+                document.getElementById('song-title').textContent = song.title;
+                document.getElementById('song-credit').innerHTML = song.credit;
+                document.getElementById('lyrics-ja').textContent = song.lyricsJa;
+
+                // 翻訳がある場合のみボタンなどを表示
+                const transBtn = document.getElementById('trans-btn');
+                if (song.lyricsEn && song.lyricsEn.trim() !== "") {
+                    transBtn.classList.remove('hidden'); // ボタンを表示
+                    document.getElementById('lyrics-en').textContent = song.lyricsEn;
+                    document.getElementById('translator-credit').textContent = song.transCredit;
+                }
+            } else {
+                // データが見つからない場合
+                document.querySelector('.lyricSection').innerHTML = '<p>Song not found.</p><p><a href="index.html">Back to Home</a></p>';
+            }
+        }
+ // 歌詞エリアに対するコピー禁止処理
+        function disableCopying() {
+            // 歌詞が表示される要素を取得（日本語と英語）
+            const targets = document.querySelectorAll('.lyrics');
+
+            targets.forEach(element => {
+                // 1. 右クリック（コンテキストメニュー）を禁止
+                element.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                });
+
+                // 2. コピー操作（Ctrl+Cなど）を禁止
+                element.addEventListener('copy', (e) => {
+                    e.preventDefault();
+                });
+                
+                // 3. 切り取り操作（Ctrl+X）を禁止
+                element.addEventListener('cut', (e) => {
+                    e.preventDefault();
+                });
+                element.style.userSelect = 'none';
+                element.style.webkitUserSelect = 'none';
+            });
+        }
+
+
+        // スクロール制御関数
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition > 40) {
+                    header.classList.add('scrolled-header');
+                } else {
+                    header.classList.remove('scrolled-header');
+                }
+            });
+        }
+
+        // 翻訳切り替え関数
+        function toggleTranslation(){
+            const box = document.getElementById('translation');
+            const btn = document.querySelector('.toggle-btn');
+            const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+            box.classList.toggle('hidden');
+            const isHidden = box.classList.contains('hidden');
+
+            btn.setAttribute('aria-expanded', !isHidden);
+
+            if(isHidden){
+                btn.textContent = "Show English Translation";
+            } else{
+                btn.textContent = "Hide English Translation";
+                if(mobileMediaQuery.matches){
+                    // CSSで scroll-margin-top: 45px; が効いている前提
+                    box.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
