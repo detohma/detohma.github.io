@@ -190,6 +190,11 @@ header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.news-card{
+        width: 100%;
+        max-width: 450px; /* カード自体の幅制限 */
+}
+
 .news-card .date {
     color: #444;
     font-weight: bold;
@@ -736,6 +741,7 @@ ul.ListOfSongs{
     
     .section { margin: 1.5rem 0; }
 
+
     .disco-flex {
         /* flex-wrap: wrap; */
         justify-content: space-evenly;
@@ -828,6 +834,16 @@ ul.ListOfSongs{
         padding-right: 16px;
         padding-left: 16px;
     }
+    
+    .news-card{
+        max-width: 100%;
+    }
+    .news-card-flex{
+    flex-direction: column;
+    gap: 10px;
+   
+    }
+
     .disco-flex {
         display: flex;
         flex-direction: column;
