@@ -200,6 +200,12 @@ header {
     margin: 0;       /* デフォルトの余白を消す */
 }
 
+.news-card-flex{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
 /* Hover Effects for clickable cards */
 .mv-card:hover, .disco-card:hover {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
