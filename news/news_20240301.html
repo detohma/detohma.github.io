@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Mini Album 「BlueHaze」 Release Info">
+    <!-- ファビコン：一つ上の階層(../)に戻って探す -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueHaze Release | News | detohma</title>
+    
+    <!-- CSS：一つ上の階層(../)に戻って探す -->
+    <link href="../css/style.css" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="NewsDetailPageBody section-for-pages">
+        <main class="section news-detail">
+            <!-- 記事ヘッダー -->
+            <div class="article-header">
+               <p class="date">2024.3.1</p>
+               <h2>ミニアルバム「BlueHaze」リリース & MV公開</h2>
+            </div>
+
+            <!-- 記事本文エリア -->
+            <div class="article-content">
+                <p>
+                    2024年3月1日、detohma初のミニアルバム「BlueHaze」をリリースいたしました。<br>
+                    各種ストリーミングサービスにて配信中です。
+                </p>
+                
+                <p>
+                    また、リードトラックとなる「BlueHaze」のミュージックビデオもYouTubeにて公開しました。<br>
+                    ぜひご覧ください。
+                </p>
+
+                <!-- YouTube埋め込み -->
+                <div class="embed-container YTEmbed" style="margin: 30px 0;">
+                    <iframe src="https://www.youtube.com/embed/sn9_Bsf8AAs" title="BlueHaze MV" allowfullscreen></iframe>
+                </div>
+
+                <h3>Streaming Links</h3>
+                <div class="streamingLinks">
+                    <a href="https://open.spotify.com/intl-ja/album/04VDUOARDSPHObIh3Mmp5r" target="_blank" class="spotify">
+
+                        <img src="../images/spotify.png" alt="Spotify">
+                    </a>
+                    <a href="https://music.apple.com/jp/album/bluehaze-ep/1731579343" target="_blank" class="applemusic">
+
+                        <img src="../images/applemusic.png" alt="Apple Music">
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="navigation-links">
+
+                <a class="backToNews" href="../news.html">Back to News List</a>
+
+                <a class="backToHome" href="../">Back to Home</a>
+            </div>
+        </main>
+    </div>
+
+    <footer id="footer">
+        <ul class="copyright"><li><span>&copy; 2023 detohma</span></li></ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ヘッダーファイルも一つ上の階層にあるので ../header.html
+            fetch("../header.html")
+            .then(response => response.text())
+            .then(data => {
+                // 【重要】ヘッダー内の「images/」や「./」という記述を、
+                // このページ用に「../images/」「../」に書き換えてから表示します
+                let fixedData = data
+                    .replace(/src="images\//g, 'src="../images/')
+                    .replace(/href="\.\/"/g, 'href="../"');
+                
+                document.getElementById("header-container").innerHTML = fixedData;
+                initScrollEvent();
+            });
+        });
+
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            window.addEventListener('scroll', () => {
+                window.scrollY > 40 ? header.classList.add('scrolled-header') : header.classList.remove('scrolled-header');
+            });
+        }
+    </script>
+</body>
+</html>

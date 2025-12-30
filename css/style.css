@@ -634,7 +634,101 @@ body:has(.NewsPageBody){
     width: 100%;
     max-width: none;
 }
-    
+
+/* =========================================
+   News Detail Page Styles & Link Adjustments
+   ========================================= */
+
+/* 1. News List: リンク化したカードのスタイル */
+.news-card-link {
+    text-decoration: none; /* 下線を消す */
+    color: inherit;        /* 文字色を継承（青くしない） */
+    display: block;        /* ブロック要素として扱う */
+    width: 100%;           /* 幅を確保 */
+    transition: transform 0.2s; /* 動きをつける */
+}
+
+/* リンクホバー時に中のカードを動かす */
+.news-card-link:hover .news-card {
+    background-color: var(--hover-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* 少し浮き上がる */
+}
+
+
+/* 2. News Detail Page Layout (Wrapper) */
+/* 基本は他のページと同じスタイルを適用 */
+body:has(.NewsDetailPageBody) {
+    padding-right: 20px;
+}
+.NewsDetailPageBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* 内部コンテンツの装飾 */
+.section.news-detail {
+    width: 100%;
+    margin: 1.5rem 0;
+    max-width: 800px; /* 記事が読みやすいように幅制限 */
+}
+
+.article-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.article-header .date {
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.article-header h2 {
+    font-size: 1.8rem;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.article-content p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+/* ナビゲーションリンク */
+.navigation-links {
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.backToNews {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+.backToNews:hover {
+    background-color: #f0f0f0;
+}
+
 
 /* =========================================
    Videos Page Styles
@@ -1161,5 +1255,11 @@ body:has(.ProfilePageBody) {
     .ProfilePageBody .section {
         padding: 0 1rem;
     }
-
+    .NewsDetailPageBody {
+        margin: 1.5rem 0.5rem;
+        padding: 0 0.5rem 1rem 0.5rem;
+    }
+    .article-header h2 {
+        font-size: 1.4rem;
+    }
 }
