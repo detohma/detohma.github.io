@@ -889,6 +889,22 @@ body:has(.section-for-pages){
     width: 300px; /* 少し大きめに表示してもOK */
 }
 
+.LyricsListPageBody .songList a{
+    text-decoration: none;
+}
+
+.songList h2 {/* h2を微かにグラデーションに。 */
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 2rem; /* 40px相当 */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* margin-left: auto; */
+    align-self: center;
+}
 
 /* Lyrics List Page: リストの表示調整 */
 .LyricsListPageBody .ListOfSongs {
