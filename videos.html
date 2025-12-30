@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="detohma News">
+    <meta name="description" content="detohma Videos">
     <link rel="icon" type="image/svg+xml" href="images/detohma_logo_round.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News | detohma</title>
+    <title>Videos | detohma</title>
 
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -21,21 +21,26 @@
     <!-- ヘッダー読み込みエリア -->
     <div id="header-container"></div>
 
-    <div class="NewsPageBody">
-        <main class="section news">
+    <div class="VideosPageBody">
+        <main class="section videos">
             <div class="titleLine">
-               <h2>News</h2>
+               <h2>Videos</h2>
             </div>
-
-            <div class="news-card">
-                <div class="date">2026.01.XX</div>
-                <p>シングル「Torch」を2026.01.XXにリリース<br>Music VideoもYouTubeにて同日公開</p>
+            <div class="videoCards">
                 
-            </div>
-            <div class="news-card">
-                <div class="date">2024.3.1</div>
-                <p>ミニアルバム「BlueHaze」をリリース<br>リード曲「BlueHaze」のMusic Videoも公開</p>
-                <!-- <a href="https://www.youtube.com/watch?v=sn9_Bsf8AAs" target="_blank">Music Video</a> -->
+                <div class="torchMv mv-card">
+                    <h3>"Torch" Music Video</h3>
+                    <div class="embed-container YTEmbed">
+                        <iframe src="https://www.youtube.com/embed/Q03RUthwVBE" title="Torch MV" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="blueHazeMv mv-card">
+                    <h3>"BlueHaze" Music Video</h3>
+                    <div class="embed-container YTEmbed">
+                        <iframe src="https://www.youtube.com/embed/sn9_Bsf8AAs" title="BlueHaze MV" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
             <p><a class="backToHome" href="./">Back to Home</a></p>
         </main>
