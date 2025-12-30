@@ -806,6 +806,7 @@ body:has(.VideosPageBody){
 }
 .video-info-detail p{
     margin:2px;
+    /* font-family: "Noto Serif JP"; */
 }
 /* =========================================
    Individual Pages Common Styles
@@ -819,6 +820,13 @@ body:has(.DiscoPageBody),
 body:has(.LyricsListPageBody),
 body:has(.ProfilePageBody) {
     padding-right: 20px;
+}
+
+body:has(.section-for-pages){
+    padding-right: 24px;
+    padding-left: 24px;
+    /* margin-right:10px; */
+    /* margin-left:-20px; */
 }
 
 /* 各ページ共通：ラッパーのスタイル */
@@ -1163,10 +1171,12 @@ body:has(.ProfilePageBody) {
         padding-left: 16px;
     }
 
+    
     .section-for-pages{
         padding-right: 0px;
         padding-left: 0px;
     }
+
 
     .news-card{
         max-width: 100%;
@@ -1241,6 +1251,7 @@ body:has(.ProfilePageBody) {
         padding-right: 16px;
 
     }
+    
     .VideosPageBody .section .mv-card{
         flex-direction: column;
         justify-content: flex-start;
