@@ -673,8 +673,8 @@ body:has(.VideosPageBody){
 .VideosPageBody .section .mv-card{
     width: 70%;
     max-width: none;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
 }
     
 
