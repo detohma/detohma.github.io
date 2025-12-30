@@ -332,7 +332,7 @@ header {
 /* Discography Layout (Updated) */
 .disco-flex {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 /* カード内部：上（ヘッダー） */
@@ -605,6 +605,8 @@ body:has(.NewsPageBody){
     padding-right:20px;
 }
 
+
+
 .NewsPageBody {
     display: flex;
     flex-direction: row;
@@ -663,7 +665,7 @@ body:has(.NewsDetailPageBody) {
 }
 .NewsDetailPageBody {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin: 1.5rem 5rem;
     margin-left: 10px;
@@ -674,11 +676,26 @@ body:has(.NewsDetailPageBody) {
     width: 100%;
 }
 
+#NewsInNewsPage h2 {/* h2を微かにグラデーションに。 */
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 2rem; /* 40px相当 */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* margin-left: auto; */
+    align-self: center;
+}
+
 /* 内部コンテンツの装飾 */
 .section.news-detail {
     width: 100%;
     margin: 1.5rem 0;
+    margin-top:0px;
     max-width: 800px; /* 記事が読みやすいように幅制限 */
+    align-self: center;
 }
 
 .article-header {
@@ -1012,7 +1029,7 @@ body:has(.ProfilePageBody) {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        gap: 15px;
+        gap: 0px;
     }
     
     .disco-card { 
