@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="detohma Discography">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discography | detohma</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <!-- ラッパークラス: DiscoPageBody -->
+    <div class="DiscoPageBody section-for-pages">
+        <main class="section discography">
+            <div>
+               <h2>Discography</h2>
+            </div>
+            
+            <div class="disco-flex">
+                <!-- Torch Single -->
+                <div class="disco-card">
+                    <div class="disco-header">
+                        <p class="release-date">2026.1.XX Release</p>
+                        <h3>Single 「Torch」</h3>
+                    </div>
+                    <div class="disco-body">
+                        <div class="disco-img">
+                            <a href="https://linkco.re/63UQunRF" target="_blank">
+                                <img src="images/Torch_photo_20251218.jpg" alt="Torch Jacket Art">
+                            </a>
+                        </div>
+                        <div class="disco-detail">
+                            <div class="tracklist">
+                                <ol>
+                                    <li>Torch</li>
+                                </ol>
+                            </div>
+                            <div class="streamingLinks">
+                                <a href="https://open.spotify.com/intl-ja/album/04VDUOARDSPHObIh3Mmp5r" target="_blank" class="spotify" aria-label="Spotify">
+                                    <img src="images/spotify.png" alt="Spotify">
+                                </a>
+                                <a href="https://music.apple.com/jp/album/bluehaze-ep/1731579343" target="_blank" class="applemusic" aria-label="Apple Music">
+                                    <img src="images/applemusic.png" alt="Apple Music">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BlueHaze Album -->
+                <div class="disco-card">
+                    <div class="disco-header">
+                        <p class="release-date">2024.3.1 Release</p>
+                        <h3>Mini Album 「BlueHaze」</h3>
+                    </div>
+                    <div class="disco-body">
+                        <div class="disco-img">
+                            <a href="https://linkco.re/63UQunRF" target="_blank">
+                                <img src="images/bluehaze_photo.png" alt="BlueHaze Jacket Art">
+                            </a>
+                        </div>
+                        <div class="disco-detail">
+                            <div class="tracklist">
+                                <ol>
+                                    <li>BlueHaze</li>
+                                    <li>Episode</li>
+                                    <li>12</li>
+                                    <li>Forest</li>
+                                    <li>Smile</li>
+                                </ol>
+                            </div>
+                            <div class="streamingLinks">
+                                <a href="https://open.spotify.com/intl-ja/album/04VDUOARDSPHObIh3Mmp5r" target="_blank" class="spotify" aria-label="Spotify">
+                                    <img src="images/spotify.png" alt="Spotify">
+                                </a>
+                                <a href="https://music.apple.com/jp/album/bluehaze-ep/1731579343" target="_blank" class="applemusic" aria-label="Apple Music">
+                                    <img src="images/applemusic.png" alt="Apple Music">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p><a class="backToHome" href="./">Back to Home</a></p>
+        </main>
+    </div>
+
+    <footer id="footer">
+        <ul class="copyright"><li><span>&copy; 2023 detohma</span></li></ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch("header.html").then(r => r.text()).then(d => {
+                document.getElementById("header-container").innerHTML = d;
+                initScrollEvent();
+            });
+        });
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            window.addEventListener('scroll', () => {
+                window.scrollY > 40 ? header.classList.add('scrolled-header') : header.classList.remove('scrolled-header');
+            });
+        }
+    </script>
+</body>
+</html>

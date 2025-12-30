@@ -241,14 +241,14 @@ header {
     gap: 15px;
 }
 
-/* Hover Effects for clickable cards */
+/* Hover Effects for clickable cards 
 .mv-card:hover, .disco-card:hover {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     background-color: var(--hover-bg);
     position: relative;
     top: -3px;
     transition: top 0.2s ease, background-color 0.2s;
-}
+}*/
 
 .section {
     margin: 1.5rem 0;
@@ -671,12 +671,119 @@ body:has(.VideosPageBody){
     flex-direction: column;
 }
 .VideosPageBody .section .mv-card{
-    width: 70%;
+    width: 100%;
     max-width: none;
-    /* display: flex;
-    flex-direction: row; */
+    gap:20px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: */
 }
-    
+.title-and-video{
+    min-width:60%;
+}
+.video-info-block{
+    justify-content: center;
+    align-content: bottom;
+    display: flex;
+}
+.video-info-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    margin-bottom: 20px;
+}
+.video-info-detail p{
+    margin:2px;
+}
+/* =========================================
+   Individual Pages Common Styles
+   (News, Videos, Disco, Lyrics, Profile)
+   ========================================= */
+
+/* 各ページ共通：bodyのパディング調整 */
+body:has(.NewsPageBody),
+body:has(.VideosPageBody),
+body:has(.DiscoPageBody),
+body:has(.LyricsListPageBody),
+body:has(.ProfilePageBody) {
+    padding-right: 20px;
+}
+
+/* 各ページ共通：ラッパーのスタイル */
+.NewsPageBody,
+.VideosPageBody,
+.DiscoPageBody,
+.LyricsListPageBody,
+.ProfilePageBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* 各ページ共通：内部sectionのスタイル */
+.NewsPageBody .section,
+.VideosPageBody .section,
+.DiscoPageBody .section,
+.LyricsListPageBody .section,
+.ProfilePageBody .section {
+    margin: 1.5rem 0;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+/* =========================================
+   Specific Page Adjustments
+   ========================================= */
+
+/* Discography Page: カード幅の制限解除など */
+.DiscoPageBody .disco-card {
+    /* 必要であればカードの幅をページに合わせて調整 */
+    /* width: 100%; など */
+}
+/* 個別ページではPCでもセンター寄せや折り返しを綺麗に見せる */
+.DiscoPageBody .disco-flex {
+    justify-content: center; /* カードが少ない場合に中央寄せ */
+}
+
+
+/* Profile Page: プロフィールカードの幅調整 */
+.ProfilePageBody .card {
+    max-width: 600px; /* あまり広がりすぎないように制限 */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 個別ページでのプロフィール画像 */
+.ProfilePageBody .profile-img img {
+    width: 300px; /* 少し大きめに表示してもOK */
+}
+
+
+/* Lyrics List Page: リストの表示調整 */
+.LyricsListPageBody .ListOfSongs {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* リストを中央寄せ */
+}
+.LyricsListPageBody .ListOfSongs li {
+    font-size: 1.2rem; /* 一覧ページなので文字を少し大きく */
+    margin: 10px 0;
+}
+
+
+
 
 /* =========================================
    Lyric Page Styles
@@ -944,7 +1051,12 @@ body:has(.VideosPageBody){
         padding-right: 16px;
         padding-left: 16px;
     }
-    
+
+    .section-for-pages{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
     .news-card{
         max-width: 100%;
     }
@@ -953,6 +1065,9 @@ body:has(.VideosPageBody){
     gap: 10px;
    
     }
+    .mv-card:has(.NewsPageBody){
+    flex-direction:column;
+} 
 
     .disco-flex {
         display: flex;
@@ -1014,6 +1129,37 @@ body:has(.VideosPageBody){
         padding-left: 16px;
         padding-right: 16px;
 
+    }
+    .VideosPageBody .section .mv-card{
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0px;
+    }
+
+    .video-info-block {
+        width: 100%;
+        justify-content: flex-start; /* 左寄せ */
+        margin-left: 15px;
+    }
+    
+    .video-info-detail {
+        margin-bottom: 0; 
+    }
+    /* =========================================
+   Mobile Adjustments for New Pages
+   ========================================= */
+    /* 各ページのラッパーのマージン調整 */
+    .DiscoPageBody,
+    .LyricsListPageBody,
+    .ProfilePageBody {
+        margin: 1.5rem 0.5rem; /* スマホでは横余白を狭く */
+        padding: 0 0.5rem 1rem 0.5rem;
+    }
+    
+    .DiscoPageBody .section,
+    .LyricsListPageBody .section,
+    .ProfilePageBody .section {
+        padding: 0 1rem;
     }
 
 }

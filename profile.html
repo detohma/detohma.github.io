@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="detohma Profile">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | detohma</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <!-- ラッパークラス: ProfilePageBody -->
+    <div class="ProfilePageBody section-for-pages">
+        <main class="section profile">
+            <div>
+               <h2>Profile</h2>
+            </div>
+
+            <div class="card">
+                <div class="profile-img">
+                    <img src="images/detohma_profile_filtered.jpg" alt="detohma profile photo">
+                </div>
+                <div class="profileName">detohma</div>
+                <p>
+                    「デトーマ」と読みます。<br>
+                    2023年2月結成。東京・神奈川で活動中。
+                </p>
+                <div class="memberList">
+                    <h3>Members</h3>
+                    <div class="members">
+                        <p>kazu (Guitar & Vocal)</p>
+                        <p>hiro (Bass)</p>
+                        <p>masa (Drums)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section links" style="padding:0; box-shadow:none; margin-top: 30px;">
+                <h2>Links</h2>
+                <div class="card">
+                    <div class="projectLinks link-item">
+                        <a href="https://rdlfkz.github.io/" target="_blank">
+                            <img src="images/rudolf.png" class="icon-rudolf" alt="">
+                            <span>kazu's solo project: rudolf</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://www.youtube.com/@detohma" target="_blank">
+                            <i class="fa-brands fa-youtube"></i><span>YouTube</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://open.spotify.com/artist/58TMYaBoaomqJIVU3InVML" target="_blank">
+                            <i class="fa-brands fa-spotify"></i><span>Spotify</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://music.apple.com/jp/artist/detohma/1731571421" target="_blank">
+                            <i class="fa-brands fa-apple"></i><span>Apple Music</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://www.instagram.com/detohma_band" target="_blank">
+                            <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://x.com/detohma_band" target="_blank">
+                            <i class="fa-brands fa-x-twitter"></i><span>X(Twitter)</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://www.tiktok.com/@detohma_band" target="_blank">
+                            <i class="fa-brands fa-tiktok"></i><span>TikTok</span>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://www.tunecore.co.jp/artists/detohma" target="_blank">
+                            <img src="images/tunecore.png" class="icon-tunecore" alt=""><span>TuneCore</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p><a class="backToHome" href="./">Back to Home</a></p>
+        </main>
+    </div>
+
+    <footer id="footer">
+        <ul class="copyright"><li><span>&copy; 2023 detohma</span></li></ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch("header.html").then(r => r.text()).then(d => {
+                document.getElementById("header-container").innerHTML = d;
+                initScrollEvent();
+            });
+        });
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            window.addEventListener('scroll', () => {
+                window.scrollY > 40 ? header.classList.add('scrolled-header') : header.classList.remove('scrolled-header');
+            });
+        }
+    </script>
+</body>
+</html>
