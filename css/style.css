@@ -824,7 +824,7 @@ body:has(.ProfilePageBody) {
 
 body:has(.section-for-pages){
     padding-right: 24px;
-    padding-left: 24px;
+    padding-left: 3px;
     /* margin-right:10px; */
     /* margin-left:-20px; */
 }
