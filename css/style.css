@@ -920,7 +920,7 @@ body:has(.section-for-pages){
 }
 .LyricsListPageBody .ListOfSongs li {
     font-size: 1.2rem; /* 一覧ページなので文字を少し大きく */
-    margin: 10px 0;
+    margin: 7px 0;
 }
 
 
