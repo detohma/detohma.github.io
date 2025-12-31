@@ -1331,3 +1331,161 @@ body:has(.section-for-pages){
     }
 
 }
+
+
+
+/* =========================================
+   Hamburger Menu & Mobile Nav
+   ========================================= */
+
+/* デフォルトではハンバーガーボタンとメニューは隠す（PC表示） */
+.hamburger-btn, .mobile-menu {
+    display: none;
+}
+
+/* PCのみ表示するクラスを作成 */
+.pc-only {
+    display: block;
+}
+
+/* スマホ・タブレット時 (1079px以下) の設定 */
+@media (max-width: 1079px) {
+
+    /* 既存ヘッダーのSNSアイコンを隠す */
+    .pc-only {
+        display: none;
+    }
+
+    /* --- ハンバーガーボタンのスタイル --- */
+    .hamburger-btn {
+        display: block;
+        position: fixed; /* スクロールしても右上に固定 */
+        top: 25px;
+        right: 20px;
+        width: 30px;
+        height: 24px;
+        z-index: 2000; /* メニューより手前に */
+        cursor: pointer;
+    }
+
+    /* 3本線 */
+    .hamburger-btn span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger-btn span:nth-of-type(1) { top: 0; }
+    .hamburger-btn span:nth-of-type(2) { top: 11px; }
+    .hamburger-btn span:nth-of-type(3) { bottom: 0; }
+
+    /* --- アクティブ（開いた）時のボタンの変化（×印にする） --- */
+    .hamburger-btn.active span:nth-of-type(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    .hamburger-btn.active span:nth-of-type(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+
+    /* --- モバイルメニュー本体（オーバーレイ） --- */
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        
+        /* 背景色：detohmaのテーマカラーに合わせて黒系、少し透過 */
+        background-color: rgba(25, 25, 25, 0.95);
+        backdrop-filter: blur(5px); /* すりガラス効果 */
+        
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    /* アクティブ時の表示 */
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* --- リンク部分（2列グリッドレイアウト） --- */
+    .mobile-menu-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2列 */
+        column-gap: 20px;
+        row-gap: 40px;
+        width: 100%;
+        max-width: 500px;
+        padding: 0 20px;
+        margin-bottom: 60px; /* SNSアイコンとの余白 */
+    }
+
+    .menu-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+        transition: opacity 0.3s;
+    }
+
+    .menu-item:hover {
+        opacity: 0.7;
+    }
+
+    /* 英語メニュー（大きく） */
+    .menu-item .en {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.4rem;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+    }
+
+    /* 日本語メニュー（小さく薄く） */
+    .menu-item .ja {
+        font-size: 0.8rem;
+        color: #888;
+        margin-top: 5px;
+        font-family: "Noto Sans JP", sans-serif;
+    }
+
+
+    /* --- SNSアイコン（下部） --- */
+    .mobile-menu-socials {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .mobile-menu-socials a {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .mobile-menu-socials a:hover {
+        color: #ccc;
+    }
+    
+    /* bodyがスクロールしないようにするクラス */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
