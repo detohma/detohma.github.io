@@ -411,9 +411,6 @@ header {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 }
-.streamingLinks:has(.NewsDetailPageBody){
-    /* margin: 100px;  */
-;}
 
 
 /* ホバー時の動き */
@@ -664,9 +661,7 @@ body:has(.NewsPageBody){
 
 /* 2. News Detail Page Layout (Wrapper) */
 /* 基本は他のページと同じスタイルを適用 */
-body:has(.NewsDetailPageBody) {
-    /* padding-right: 20px; */
-}
+
 .NewsDetailPageBody {
     display: flex;
     flex-direction: column;
@@ -877,11 +872,6 @@ body:has(.section-for-pages){
    Specific Page Adjustments
    ========================================= */
 
-/* Discography Page: カード幅の制限解除など */
-.DiscoPageBody .disco-card {
-    /* 必要であればカードの幅をページに合わせて調整 */
-    /* width: 100%; */
-}
 /* 個別ページではPCでもセンター寄せや折り返しを綺麗に見せる */
 .DiscoPageBody .disco-flex {
     justify-content: left; /* カードが少ない場合に左寄せ */
