@@ -1261,6 +1261,10 @@ body:has(.section-for-pages){
         padding: 0 15px;
     }
     .scrolled-header .social-icons i { font-size: 15px; }
+
+    .scrolled-header .header-right-container{
+        margin-right:30px
+    }
     
     .streamingLinks {
         flex-direction: row;
@@ -1329,6 +1333,20 @@ body:has(.section-for-pages){
     .DiscoPageBody .disco-flex {
     padding-left:0px;
     }
+ /* 1. ハンバーガーボタンを「画面固定」から「ヘッダー内固定」に変更 */
+    .hamburger-btn {
+        position: absolute; /* headerがfixedなので、absoluteにするとヘッダー内部で固定されます */
+        top: 25px;          /* 初期の高さ（お好みで微調整） */
+        right: 15px;        /* 右の余白 */
+    }
+
+    /* 2. スクロール時(.scrolled-header)のボタン位置を調整 */
+    .scrolled-header .hamburger-btn {
+        top: 8px; /* ヘッダーが薄くなる分、少し上に移動させる */
+        /* rightは継承されるので書かなくてOK */
+        
+    }
+
 
 }
 
