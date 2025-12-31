@@ -891,6 +891,10 @@ body:has(.section-for-pages){
     width: 300px; /* 少し大きめに表示してもOK */
 }
 
+.profile-info p{
+    line-height: 1.5;
+}
+
 .LyricsListPageBody .songList a{
     text-decoration: none;
 }
