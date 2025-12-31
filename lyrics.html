@@ -72,6 +72,7 @@
             .then(data => {
                 document.getElementById("header-container").innerHTML = data;
                 initScrollEvent();
+                initHamburgerMenu();
             });
 
             // 2. ソングリスト読み込み
@@ -184,6 +185,30 @@
                         block: 'start'
                     });
                 }
+            }
+        }
+        function initHamburgerMenu() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-mobile-menu');
+            const body = document.body;
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    // クラスの着脱（開閉切り替え）
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    body.classList.toggle('menu-open'); // 背景固定用
+                });
+
+                // リンクをクリックしたらメニューを閉じる処理
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    });
+                });
             }
         }
     </script>
