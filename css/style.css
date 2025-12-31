@@ -403,7 +403,6 @@ header {
     gap: 12px;
     margin-top: 5px; 
     padding-bottom: 2px;
-}
 
 /* リンク内の画像設定 */
 .streamingLinks img {
@@ -411,6 +410,11 @@ header {
     border-radius: 4px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+}
+.streamingLinks:has(.NewsDetailPageBody){
+    /* margin: 100px;  */
+;}
+
 
 /* ホバー時の動き */
 .streamingLinks a:hover img {
@@ -661,7 +665,7 @@ body:has(.NewsPageBody){
 /* 2. News Detail Page Layout (Wrapper) */
 /* 基本は他のページと同じスタイルを適用 */
 body:has(.NewsDetailPageBody) {
-    padding-right: 20px;
+    /* padding-right: 20px; */
 }
 .NewsDetailPageBody {
     display: flex;
@@ -685,13 +689,13 @@ body:has(.NewsDetailPageBody) {
     font-size: 2rem; /* 40px相当 */
     margin-top: 15px;
     margin-bottom: 10px;
-    /* margin-left: auto; */
+    margin-left: 10px;
     align-self: center;
 }
 
 /* 内部コンテンツの装飾 */
 .section.news-detail {
-    width: 100%;
+    width: 95%;
     padding-top: 10px;
     margin: 1.5rem 0;
     margin-top:0px;
@@ -722,6 +726,9 @@ body:has(.NewsDetailPageBody) {
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
 }
+.article-content .disco-card{
+    justify-self: center;    
+}
 
 /* ナビゲーションリンク */
 .navigation-links {
@@ -737,16 +744,18 @@ body:has(.NewsDetailPageBody) {
 .backToNews {
     color: var(--text-dark);
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
     border: 1px solid #ddd;
-    padding: 8px 20px;
+    padding: 4px 10px;
     border-radius: 20px;
     transition: background-color 0.2s;
 }
 .backToNews:hover {
     background-color: #f0f0f0;
 }
-
+ .news-detail .backToHome{
+    margin-top:20px;
+}
 
 /* =========================================
    Videos Page Styles
@@ -807,7 +816,7 @@ body:has(.VideosPageBody){
 }
 .video-info-detail p{
     margin:2px;
-    /* font-family: "Noto Serif JP"; */
+    font-family: "Noto Serif JP";
 }
 /* =========================================
    Individual Pages Common Styles
@@ -824,8 +833,8 @@ body:has(.ProfilePageBody) {
 }
 
 body:has(.section-for-pages){
-    padding-right: 24px;
-    padding-left: 3px;
+    padding-right: 34px;
+    padding-left: 13px;
     /* margin-right:10px; */
     /* margin-left:-20px; */
 }
@@ -854,7 +863,7 @@ body:has(.section-for-pages){
 .DiscoPageBody .section,
 .LyricsListPageBody .section,
 .ProfilePageBody .section {
-    margin: 1.5rem 0;
+    margin: 0rem 0;
     padding: 0 2rem 1rem 2rem;
     background-color: #fff;
     border-radius: 10px;
@@ -871,11 +880,13 @@ body:has(.section-for-pages){
 /* Discography Page: カード幅の制限解除など */
 .DiscoPageBody .disco-card {
     /* 必要であればカードの幅をページに合わせて調整 */
-    /* width: 100%; など */
+    /* width: 100%; */
 }
 /* 個別ページではPCでもセンター寄せや折り返しを綺麗に見せる */
 .DiscoPageBody .disco-flex {
-    justify-content: center; /* カードが少ない場合に中央寄せ */
+    justify-content: left; /* カードが少ない場合に左寄せ */
+    padding-left:20px;
+    gap:20px;
 }
 
 
@@ -1054,7 +1065,7 @@ body:has(.section-for-pages){
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        gap: 0px;
+        /* gap: 20px; */
     }
     
     .disco-card { 
@@ -1094,11 +1105,15 @@ body:has(.section-for-pages){
     
     .section { margin: 1.5rem 0; }
 
-
-    .disco-flex {
-        /* flex-wrap: wrap; */
-        justify-content: space-evenly;
+    .disco-flex{
+        justify-content: space-evenly; 
     }
+    .DiscoPageBody .disco-flex {
+    justify-content: space-evenly; 
+    padding-left:10px;
+    gap:10px;
+    }
+
     .profile-img {
     justify-content: left;
     margin-left: 10px;
@@ -1313,6 +1328,7 @@ body:has(.section-for-pages){
         padding-right:14px;
 
     }
+    
     .NewsDetailPageBody {
         margin: 1.5rem 0.5rem;
         padding: 0 0.5rem 1rem 0.5rem;
@@ -1320,4 +1336,8 @@ body:has(.section-for-pages){
     .article-header h2 {
         font-size: 1.4rem;
     }
+    .DiscoPageBody .disco-flex {
+    padding-left:0px;
+    }
+
 }
