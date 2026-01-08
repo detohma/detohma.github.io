@@ -101,7 +101,7 @@ Cuz I can only do the things I can do
     "torch": {
         title: "Torch",
         credit: "<span class='credit-label'>Music & Lyrics:</span> kazu",
-        image: "images/Torch_photo_20251218.jpg", // 仮画像
+        image: "images/Torch_photo_20260108.jpg",
         lyricsJa: `
 空っぽだって思ってた
 夢中だった それだけ
