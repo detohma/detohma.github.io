@@ -811,7 +811,7 @@ body:has(.VideosPageBody){
 }
 .video-info-detail p{
     margin:2px;
-    font-family: "Noto Serif JP";
+    /* font-family: "Noto Serif JP" , Calibri; */
 }
 /* =========================================
    Individual Pages Common Styles
