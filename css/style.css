@@ -815,6 +815,8 @@ body:has(.VideosPageBody){
 }
 .video-info-detail p{
     margin:2px;
+    padding-right:7px;
+    font-size:1rem;
     /* font-family: "Noto Serif JP" , Calibri; */
 }
 /* =========================================
