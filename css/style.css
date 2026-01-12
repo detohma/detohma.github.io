@@ -415,9 +415,10 @@ header {
 
 /* ホバー時の動き */
 .streamingLinks a:hover img {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
     /* 影を濃くする */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s
 }
 
 .applemusic img { width: 80px; } /*spotify imgの方が元々大きいので、appleの方を5pxだけ大きくする*/
@@ -517,7 +518,9 @@ header {
 .section .members p {
     margin-left: 30px;
 }
-
+.links .card{
+    padding-right:0;
+}
 .link-item {
     line-height: 1.8;
     font-size: 18px;
@@ -655,7 +658,8 @@ body:has(.NewsPageBody){
 .news-card-link:hover .news-card {
     background-color: var(--hover-bg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transform: translateY(-3px); /* 少し浮き上がる */
+    transform: translateY(-2px); /* 少し浮き上がる */
+    transition: 0.3s
 }
 
 
