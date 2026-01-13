@@ -242,9 +242,9 @@ header {
     background-color: #fff;
     font-size: 0.7em;
     font-weight: bold;
-    padding: 1px 6px;
+    padding: 1px 4px;
     border-radius: 50px; /* 丸くする */
-    margin-left: 8px;
+    margin-left: 5px;
     vertical-align: 2px;
 }
 .news-card-flex{
