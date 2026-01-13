@@ -239,10 +239,10 @@ header {
 .new-badge {
     color: var(--accent-color); /* 定義済みの青色 #3f53ed */
     border: 1px solid var(--accent-color);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     font-size: 0.7em;
     font-weight: bold;
-    padding: 1px 4px;
+    padding: 0px 5px;
     border-radius: 50px; /* 丸くする */
     margin-left: 5px;
     vertical-align: 2px;
