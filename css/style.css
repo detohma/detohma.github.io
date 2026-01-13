@@ -235,6 +235,18 @@ header {
     margin: 0;       /* デフォルトの余白を消す */
 }
 
+
+.new-badge {
+    color: var(--accent-color); /* 定義済みの青色 #3f53ed */
+    border: 1px solid var(--accent-color);
+    background-color: #fff;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 1px 6px;
+    border-radius: 50px; /* 丸くする */
+    margin-left: 8px;
+    vertical-align: 2px;
+}
 .news-card-flex{
     display: flex;
     justify-content: space-evenly;
