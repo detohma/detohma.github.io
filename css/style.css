@@ -267,6 +267,7 @@ header {
     
     border-top-left-radius: 12px;    
     border-bottom-right-radius: 12px; 
+    /* border-bottom-left-radius: 12px;  */
     z-index: 10;
 }
 
@@ -1161,6 +1162,10 @@ body:has(.section-for-pages){
         max-width: 80vw;
         display: block;
         margin: 0 auto 0 10px;
+    }
+    .logo-link {
+    position: relative; /* z-indexを効かせるために必要 */
+    z-index: 2000;      /* メニュー(1500)より手前、ボタン(2000)と同じ高さにする */
     }
     .header-content {
         padding-top: 15px;
