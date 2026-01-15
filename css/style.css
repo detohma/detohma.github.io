@@ -62,6 +62,13 @@ body::before {
     color: transparent;
     display: inline-block;
 }
+.section-for-pages .section h2{
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
 
 body {
     /* フォントフォールバックの追加: 特定のOSに依存しないように */
@@ -416,7 +423,12 @@ header {
     flex-direction: column;
     gap: 0px; /* 収録曲とリンクの間隔 */
 }
-
+#torchTuneCore{
+    display: flex;
+    justify-self: center;
+    size-adjust: 1rem;
+    /* transform: scale(0.7); */
+}
 /* 収録曲リスト */
 .tracklist span {
     font-weight: bold;
@@ -750,11 +762,19 @@ body:has(.NewsPageBody){
     font-weight: bold;
 }
 
-.article-header h2 {
+.section-for-pages .section .article-header h2 { /*個別ニュースページのタイトルのグラデーションを取り消し。*/
     font-size: 1.8rem;
     margin-top: 5px;
     line-height: 1.4;
+    color: black;
+    background: none;
+    /* 重要: クリップ設定も初期値に戻す */
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    /* color: transparent; */
+    /* display: inline-block; */
 }
+
 
 .article-content p {
     line-height: 1.8;
