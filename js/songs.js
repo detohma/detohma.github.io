@@ -100,8 +100,8 @@ Cuz I can only do the things I can do
     // ■ 2曲目 Torch
     "torch": {
         title: "Torch",
-        credit: "<span class='credit-label'>Music & Lyrics:</span> kazu",
-        image: "images/Torch_photo_20251218.jpg", // 仮画像
+        credit: "<span class='credit-label'>Music & Lyrics:</span> rudolf",
+        image: "images/Torch_photo_20260108.jpg",
         lyricsJa: `
 空っぽだって思ってた
 夢中だった それだけ

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="detohma Videos">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | detohma</title>
+
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <!-- Google Font ...(Noto Sans JP, Noto Serif JP, DM Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ヘッダー読み込みエリア -->
+    <div id="header-container"></div>
+
+    <div class="VideosPageBody section-for-pages">
+        <main class="section videos">
+            <div id="TitleInPage">
+               <h2>Videos</h2>
+            </div>
+            <div class="videoCards">
+                    <div class="torchTeaser mv-card">
+                        <div class = "title-and-video">                        
+                            <h3>"Torch" Teaser</h3>
+                            <div class="embed-container YTEmbed">
+                                <iframe src="https://www.youtube.com/embed/UzXjFF0amkw" title="Torch Teaser" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <div class="torchMv mv-card">
+                        <div class = "title-and-video">                        
+                            <h3>"Torch" Music Video</h3>
+                            <div class="embed-container YTEmbed">
+                                <iframe src="https://www.youtube.com/embed/B0p6NWCDm4w" title="Torch MV" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="video-info-block">
+                            <div class="video-info-detail">
+                                <p>[Credit]</p>
+                                <p></p>
+                                <p>Shot / Edited / Directed by: 松田尭峰</p>
+                                <p>Production Assistant / Camera B: 塚澤真堂</p>
+                                <p>Starring: Alexandros Marios Makedonas, Rito</p>
+                                <p>English Translation: Nathania Nah</p>
+                                <p>Special Thanks: 小田原市、小田原クリスチャンセンター</p>
+                            </div>
+                        </div>
+                    </div> -->
+
+                <div class="blueHazeMv mv-card">
+                    <div class = "title-and-video"> 
+                        <h3>"BlueHaze" Music Video</h3>
+                        <div class="embed-container YTEmbed">
+                            <iframe src="https://www.youtube.com/embed/sn9_Bsf8AAs" title="BlueHaze MV" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info-block">
+                            <div class="video-info-detail">
+                                <p>[Credit]</p>
+                                <p></p>
+                                <p>Edited by：kazu</p>
+                                <p>Starring：detohma</p>    
+                            </div>
+                    </div>
+                </div>
+
+                <div class="blueHazeTeaser mv-card">
+                    <div class = "title-and-video"> 
+                        <h3>"BlueHaze" Teaser</h3>
+                        <div class="embed-container YTEmbed">
+                            <iframe src="https://www.youtube.com/embed/EkW_JGEfBg4" title="BlueHaze Teaser" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="video-info-block">
+                            <div class="video-info-detail">
+                            <p></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <a class="backToHome" href="./">Back to Home</a>
+        </main>
+    </div>
+
+    <!-- フッター -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li><span>&copy; 2023 detohma</span></li>
+        </ul>
+    </footer>
+
+   
+    <!-- JavaScript Control -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. ヘッダー読み込み
+            fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-container").innerHTML = data;
+                initScrollEvent();
+                initHamburgerMenu();
+            });
+
+            
+        });
+
+ 
+
+        // スクロール制御関数
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                if (scrollPosition > 40) {
+                    header.classList.add('scrolled-header');
+                } else {
+                    header.classList.remove('scrolled-header');
+                }
+            });
+        }
+        function initHamburgerMenu() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-mobile-menu');
+            const body = document.body;
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    // クラスの着脱（開閉切り替え）
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    body.classList.toggle('menu-open'); // 背景固定用
+                });
+
+                // リンクをクリックしたらメニューを閉じる処理
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    });
+                });
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="detohma Song List">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics List | detohma</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <!-- ラッパークラス: LyricsListPageBody -->
+    <div class="LyricsListPageBody section-for-pages">
+        <main class="section songList">
+            <div>
+               <a href="lyrics_list.html"><h2>Lyrics</h2></a>
+            </div>
+            
+            <!-- ここは songlist.html をJSで読み込むか、直接記述でもOK -->
+            <!-- 今回は構造を明確にするため直接記述の例です -->
+            <div class="card">
+                <ul class="ListOfSongs">
+                    <li class="blueHazeSongs"><a href="lyrics.html?id=bluehaze">BlueHaze <span class="badge-eng">ENG</span></a></li>
+                    <li class="blueHazeSongs"><a href="lyrics.html?id=episode">Episode</a></li>
+                    <li class="blueHazeSongs"><a href="lyrics.html?id=12">12</a></li>
+                    <li class="blueHazeSongs"><a href="lyrics.html?id=forest">Forest</a></li>
+                    <li class="blueHazeSongs"><a href="lyrics.html?id=smile">Smile</a></li>
+                    <li class="torchSongs hidden"><a href="lyrics.html?id=torch">Torch <span class="badge-eng">ENG</span></a></li>
+                </ul>
+            </div>
+
+            <p><a class="backToHome" href="./">Back to Home</a></p>
+        </main>
+    </div>
+
+    <footer id="footer">
+        <ul class="copyright"><li><span>&copy; 2023 detohma</span></li></ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch("header.html").then(r => r.text()).then(d => {
+                document.getElementById("header-container").innerHTML = d;
+                initScrollEvent();
+                initHamburgerMenu();
+            });
+        });
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            window.addEventListener('scroll', () => {
+                window.scrollY > 40 ? header.classList.add('scrolled-header') : header.classList.remove('scrolled-header');
+            });
+        }
+        function initHamburgerMenu() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-mobile-menu');
+            const body = document.body;
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    // クラスの着脱（開閉切り替え）
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    body.classList.toggle('menu-open'); // 背景固定用
+                });
+
+                // リンクをクリックしたらメニューを閉じる処理
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+</html>

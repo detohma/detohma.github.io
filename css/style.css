@@ -62,6 +62,13 @@ body::before {
     color: transparent;
     display: inline-block;
 }
+.section-for-pages .section h2{
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
 
 body {
     /* フォントフォールバックの追加: 特定のOSに依存しないように */
@@ -190,6 +197,42 @@ header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.section-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.detail-btn{
+    position: relative;
+    border: 1px solid #f0f0f0; 
+    border-radius: 12px;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #666;
+    cursor: pointer;        /* マウスを乗せたときに指マークにする */
+    transition: background-color 0.2s;
+}
+
+.detail-btn:hover { 
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--hover-bg);
+    position: relative;
+    top: -1px;
+    transition: top 0.2s ease, background-color 0.2s;
+}
+
+
+.news-card{
+        width: 100%;
+        max-width: 450px; /* カード自体の幅制限 */
+        position: relative;
+}
+
 .news-card .date {
     color: #444;
     font-weight: bold;
@@ -200,14 +243,55 @@ header {
     margin: 0;       /* デフォルトの余白を消す */
 }
 
-/* Hover Effects for clickable cards */
+/* 日付の右にnewバッジ */
+/* .new-badge {
+    color: var(--accent-color); 
+    border: 1px solid var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 0px 5px;
+    border-radius: 50px;
+    margin-left: 5px;
+    vertical-align: 2px;
+} */
+
+ /* newバッジを左上に固定 */
+.new-badge {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    
+    /* デザイン装飾 */
+    background-color: rgba(29, 123, 245, 0.586); 
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6rem;
+    /* font-weight: bold; */
+    letter-spacing: 0.05em;
+    padding: 2px 6px 1px 6px;
+    
+    
+    border-top-left-radius: 12px;    
+    border-bottom-right-radius: 12px; 
+    /* border-bottom-left-radius: 12px;  */
+    z-index: 10;
+}
+
+.news-card-flex{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+/* Hover Effects for clickable cards 
 .mv-card:hover, .disco-card:hover {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     background-color: var(--hover-bg);
     position: relative;
     top: -3px;
     transition: top 0.2s ease, background-color 0.2s;
-}
+}*/
 
 .section {
     margin: 1.5rem 0;
@@ -291,7 +375,7 @@ header {
 /* Discography Layout (Updated) */
 .disco-flex {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 /* カード内部：上（ヘッダー） */
@@ -339,7 +423,12 @@ header {
     flex-direction: column;
     gap: 0px; /* 収録曲とリンクの間隔 */
 }
-
+#torchTuneCore{
+    display: flex;
+    justify-self: center;
+    size-adjust: 1rem;
+    /* transform: scale(0.7); */
+}
 /* 収録曲リスト */
 .tracklist span {
     font-weight: bold;
@@ -362,7 +451,6 @@ header {
     gap: 12px;
     margin-top: 5px; 
     padding-bottom: 2px;
-}
 
 /* リンク内の画像設定 */
 .streamingLinks img {
@@ -370,12 +458,15 @@ header {
     border-radius: 4px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+}
+
 
 /* ホバー時の動き */
 .streamingLinks a:hover img {
-    transform: translateY(-3px);
+    transform: translateY(-1px);
     /* 影を濃くする */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s
 }
 
 .applemusic img { width: 80px; } /*spotify imgの方が元々大きいので、appleの方を5pxだけ大きくする*/
@@ -475,7 +566,9 @@ header {
 .section .members p {
     margin-left: 30px;
 }
-
+.links .card{
+    padding-right:0;
+}
 .link-item {
     line-height: 1.8;
     font-size: 18px;
@@ -528,7 +621,7 @@ ul.ListOfSongs{
     background-position: 0 50%;
 }
 .blueHazeSongs a { background-image: url('../images/bluehaze_photo.png'); }
-.torchSongs a { background-image: url('../images/Torch_photo_20251218.jpg'); }
+.torchSongs a { background-image: url('../images/Torch_photo_20260108.jpg'); }
 
 .badge-eng {
     font-size: 0.8em;
@@ -556,6 +649,344 @@ ul.ListOfSongs{
         padding: 2px 8px;
         border-radius: 5px;;
 }
+/* =========================================
+   News Page Styles
+   ========================================= */
+body:has(.NewsPageBody){
+
+    padding-right:20px;
+}
+
+
+
+.NewsPageBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* gap: 20px; */
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right:10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px; /* 角丸はほぼ無くす */
+    /* 内側の線はあえて消すか、非常に薄く */ 
+    width:100%
+}
+.NewsPageBody .section{
+    margin: 1.5rem 0;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px; /* 角丸はほぼ無くす */
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+.NewsPageBody .section .news-card{
+    width: 100%;
+    max-width: none;
+}
+
+/* =========================================
+   News Detail Page Styles & Link Adjustments
+   ========================================= */
+
+/* 1. News List: リンク化したカードのスタイル */
+.news-card-link {
+    text-decoration: none; /* 下線を消す */
+    color: inherit;        /* 文字色を継承（青くしない） */
+    display: block;        /* ブロック要素として扱う */
+    width: 100%;           /* 幅を確保 */
+    transition: transform 0.2s; /* 動きをつける */
+}
+
+/* リンクホバー時に中のカードを動かす */
+.news-card-link:hover .news-card {
+    background-color: var(--hover-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* 少し浮き上がる */
+    transition: 0.3s
+}
+
+
+/* 2. News Detail Page Layout (Wrapper) */
+/* 基本は他のページと同じスタイルを適用 */
+
+.NewsDetailPageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#NewsInNewsPage h2 {/* h2を微かにグラデーションに。 */
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 2rem; /* 40px相当 */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    align-self: center;
+}
+
+/* 内部コンテンツの装飾 */
+.section.news-detail {
+    width: 95%;
+    padding-top: 10px;
+    margin: 1.5rem 0;
+    margin-top:0px;
+    max-width: 800px; /* 記事が読みやすいように幅制限 */
+    align-self: center;
+}
+
+.article-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.article-header .date {
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.section-for-pages .section .article-header h2 { /*個別ニュースページのタイトルのグラデーションを取り消し。*/
+    font-size: 1.8rem;
+    margin-top: 5px;
+    line-height: 1.4;
+    color: black;
+    background: none;
+    /* 重要: クリップ設定も初期値に戻す */
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    /* color: transparent; */
+    /* display: inline-block; */
+}
+
+
+.article-content p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+.article-content .disco-card{
+    justify-self: center;    
+}
+
+/* ナビゲーションリンク */
+.navigation-links {
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.backToNews {
+    color: var(--text-dark);
+    text-decoration: none;
+    /* font-weight: bold; */
+    border: 1px solid #ddd;
+    padding: 4px 10px;
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+.backToNews:hover {
+    background-color: #f0f0f0;
+}
+ .news-detail .backToHome{
+    margin-top:20px;
+}
+
+/* =========================================
+   Videos Page Styles
+   ========================================= */
+body:has(.VideosPageBody){
+    padding-right:20px;
+}
+
+.VideosPageBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* gap: 20px; */
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right:10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px; /* 角丸はほぼ無くす */
+    /* 内側の線はあえて消すか、非常に薄く */ 
+    width:100%
+}
+.VideosPageBody .section{
+    margin: 1.5rem 0;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px; /* 角丸はほぼ無くす */
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+.VideosPageBody .videoCards{
+    flex-direction: column;
+}
+.VideosPageBody .section .mv-card{
+    width: 100%;
+    max-width: none;
+    gap:20px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: */
+}
+.title-and-video{
+    min-width:60%;
+}
+.video-info-block{
+    justify-content: center;
+    align-content: bottom;
+    display: flex;
+}
+.video-info-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    margin-bottom: 20px;
+}
+.video-info-detail p{
+    margin:2px;
+    padding-right:7px;
+    font-size:1rem;
+    /* font-family: "Noto Serif JP" , Calibri; */
+}
+/* =========================================
+   Individual Pages Common Styles
+   (News, Videos, Disco, Lyrics, Profile)
+   ========================================= */
+
+/* 各ページ共通：bodyのパディング調整 */
+body:has(.NewsPageBody),
+body:has(.VideosPageBody),
+body:has(.DiscoPageBody),
+body:has(.LyricsListPageBody),
+body:has(.ProfilePageBody) {
+    padding-right: 20px;
+}
+
+body:has(.section-for-pages){
+    padding-right: 34px;
+    padding-left: 13px;
+    /* margin-right:10px; */
+    /* margin-left:-20px; */
+}
+
+/* 各ページ共通：ラッパーのスタイル */
+.NewsPageBody,
+.VideosPageBody,
+.DiscoPageBody,
+.LyricsListPageBody,
+.ProfilePageBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem 5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* 各ページ共通：内部sectionのスタイル */
+.NewsPageBody .section,
+.VideosPageBody .section,
+.DiscoPageBody .section,
+.LyricsListPageBody .section,
+.ProfilePageBody .section {
+    margin: 0rem 0;
+    padding: 0 2rem 1rem 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+/* =========================================
+   Specific Page Adjustments
+   ========================================= */
+
+/* 個別ページではPCでもセンター寄せや折り返しを綺麗に見せる */
+.DiscoPageBody .disco-flex {
+    justify-content: left; /* カードが少ない場合に左寄せ */
+    padding-left:20px;
+    gap:20px;
+}
+
+
+/* Profile Page: プロフィールカードの幅調整 */
+.ProfilePageBody .card {
+    max-width: 600px; /* あまり広がりすぎないように制限 */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* 個別ページでのプロフィール画像 */
+.ProfilePageBody .profile-img img {
+    width: 300px; /* 少し大きめに表示してもOK */
+}
+
+.profile-info p{
+    line-height: 1.5;
+}
+
+.LyricsListPageBody .songList a{
+    text-decoration: none;
+}
+
+.songList h2 {/* h2を微かにグラデーションに。 */
+    background: linear-gradient(0deg, rgb(140,140,140) 0%,  rgb(0,0,0) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 2rem; /* 40px相当 */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* margin-left: auto; */
+    align-self: center;
+}
+
+/* Lyrics List Page: リストの表示調整 */
+.LyricsListPageBody .ListOfSongs {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* リストを中央寄せ */
+}
+.LyricsListPageBody .ListOfSongs li {
+    font-size: 1.2rem; /* 一覧ページなので文字を少し大きく */
+    margin: 7px 0;
+}
+
+
+
 
 /* =========================================
    Lyric Page Styles
@@ -633,7 +1064,7 @@ ul.ListOfSongs{
     background: rgb(255, 255, 255);
     margin-bottom: 15px;
     margin-left: 50px;
-    margin-top: -30px;
+    margin-top: -27px;
     display: block;
     /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); */ 
     scroll-margin-top: 45px;
@@ -650,10 +1081,11 @@ ul.ListOfSongs{
 
 .hidden { display: none; }
 .backToHome {
-    display: flex;
+    display: block;           /* blockに変更 */
+    width: fit-content;       /* 幅を文字に合わせる */
+    margin: 50px auto 0;      /* 中央寄せ */
     color: #333;
-    justify-content: center;
-    margin-top: 50px;
+    /* text-decoration: none; */
 }
 
 /* =========================================
@@ -689,7 +1121,7 @@ ul.ListOfSongs{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: center;
         gap: 15px;
     }
     
@@ -730,10 +1162,15 @@ ul.ListOfSongs{
     
     .section { margin: 1.5rem 0; }
 
-    .disco-flex {
-        /* flex-wrap: wrap; */
-        justify-content: space-evenly;
+    .disco-flex{
+        justify-content: space-evenly; 
     }
+    .DiscoPageBody .disco-flex {
+    justify-content: space-evenly; 
+    padding-left:10px;
+    gap:10px;
+    }
+
     .profile-img {
     justify-content: left;
     margin-left: 10px;
@@ -745,6 +1182,10 @@ ul.ListOfSongs{
         max-width: 80vw;
         display: block;
         margin: 0 auto 0 10px;
+    }
+    .logo-link {
+    position: relative; /* z-indexを効かせるために必要 */
+    z-index: 2000;      /* メニュー(1500)より手前、ボタン(2000)と同じ高さにする */
     }
     .header-content {
         padding-top: 15px;
@@ -822,6 +1263,26 @@ ul.ListOfSongs{
         padding-right: 16px;
         padding-left: 16px;
     }
+
+    
+    .section-for-pages{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+
+    .news-card{
+        max-width: 100%;
+    }
+    .news-card-flex{
+    flex-direction: column;
+    gap: 10px;
+   
+    }
+    .mv-card:has(.NewsPageBody){
+    flex-direction:column;
+} 
+
     .disco-flex {
         display: flex;
         flex-direction: column;
@@ -871,6 +1332,10 @@ ul.ListOfSongs{
         padding: 0 15px;
     }
     .scrolled-header .social-icons i { font-size: 15px; }
+
+    .scrolled-header .header-right-container{
+        margin-right:30px
+    }
     
     .streamingLinks {
         flex-direction: row;
@@ -883,5 +1348,233 @@ ul.ListOfSongs{
         padding-right: 16px;
 
     }
+    .VideosPageBody .section{
+    padding-right: 16px;
+    padding-left: 16px;
+    }
+    .VideosPageBody .section .mv-card{
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
 
+    }
+
+    .video-info-block {
+        width: 100%;
+        justify-content: flex-start; /* 左寄せ */
+        margin-left: 15px;
+    }
+    
+    .video-info-detail {
+        margin-bottom: 0; 
+    }
+    /* =========================================
+   Mobile Adjustments for New Pages
+   ========================================= */
+    /* 各ページのラッパーのマージン調整 */
+    .DiscoPageBody,
+    .LyricsListPageBody,
+    .ProfilePageBody {
+        margin: 1.5rem 0.5rem; /* スマホでは横余白を狭く */
+        padding: 0 0.5rem 1rem 0.5rem;
+    }
+    
+    .DiscoPageBody .section,
+    .LyricsListPageBody .section,
+    .ProfilePageBody .section {
+        padding: 0 1rem;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .NewsPageBody .section{
+        padding-left:14px;
+        padding-right:14px;
+
+    }
+    
+    .NewsDetailPageBody {
+        margin: 1.5rem 0.5rem;
+        padding: 0 0.5rem 1rem 0.5rem;
+    }
+    .article-header h2 {
+        font-size: 1.4rem;
+    }
+    .DiscoPageBody .disco-flex {
+    padding-left:0px;
+    }
+ /* 1. ハンバーガーボタンを「画面固定」から「ヘッダー内固定」に変更 */
+    .hamburger-btn {
+        position: absolute; /* headerがfixedなので、absoluteにするとヘッダー内部で固定されます */
+        top: 25px;          /* 初期の高さ（お好みで微調整） */
+        right: 15px;        /* 右の余白 */
+    }
+
+    /* 2. スクロール時(.scrolled-header)のボタン位置を調整 */
+    .scrolled-header .hamburger-btn {
+        top: 8px; /* ヘッダーが薄くなる分、少し上に移動させる */
+        /* rightは継承されるので書かなくてOK */
+        
+    }
+
+
+}
+
+
+
+/* =========================================
+   Hamburger Menu & Mobile Nav
+   ========================================= */
+
+/* デフォルトではハンバーガーボタンとメニューは隠す（PC表示） */
+.hamburger-btn, .mobile-menu {
+    display: none;
+}
+
+/* PCのみ表示するクラスを作成 */
+.pc-only {
+    display: block;
+}
+
+/* スマホ・タブレット時 (1079px以下) の設定 */
+@media (max-width: 1079px) {
+
+    /* 既存ヘッダーのSNSアイコンを隠す */
+    .pc-only {
+        display: none;
+    }
+
+    /* --- ハンバーガーボタンのスタイル --- */
+    .hamburger-btn {
+        display: block;
+        position: fixed; /* スクロールしても右上に固定 */
+        top: 25px;
+        right: 20px;
+        width: 30px;
+        height: 24px;
+        z-index: 2000; /* メニューより手前に */
+        cursor: pointer;
+    }
+
+    /* 3本線 */
+    .hamburger-btn span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger-btn span:nth-of-type(1) { top: 0; }
+    .hamburger-btn span:nth-of-type(2) { top: 11px; }
+    .hamburger-btn span:nth-of-type(3) { bottom: 0; }
+
+    /* --- アクティブ（開いた）時のボタンの変化（×印にする） --- */
+    .hamburger-btn.active span:nth-of-type(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    .hamburger-btn.active span:nth-of-type(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+
+    /* --- モバイルメニュー本体（オーバーレイ） --- */
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        
+        /* 背景色：detohmaのテーマカラーに合わせて黒系、少し透過 */
+        background-color: rgba(25, 25, 25, 0.95);
+        backdrop-filter: blur(5px); /* すりガラス効果 */
+        
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    /* アクティブ時の表示 */
+    .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* --- リンク部分（2列グリッドレイアウト） --- */
+    .mobile-menu-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2列 */
+        column-gap: 20px;
+        row-gap: 40px;
+        width: 100%;
+        max-width: 500px;
+        padding: 0 20px;
+        margin-bottom: 60px; /* SNSアイコンとの余白 */
+    }
+
+    .menu-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #fff;
+        transition: opacity 0.3s;
+    }
+
+    .menu-item:hover {
+        opacity: 0.7;
+    }
+
+    /* 英語メニュー（大きく） */
+    .menu-item .en {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.4rem;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+    }
+
+    /* 日本語メニュー（小さく薄く） */
+    .menu-item .ja {
+        font-size: 0.8rem;
+        color: #888;
+        margin-top: 5px;
+        font-family: "Noto Sans JP", sans-serif;
+    }
+
+
+    /* --- SNSアイコン（下部） --- */
+    .mobile-menu-socials {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .mobile-menu-socials a {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .mobile-menu-socials a:hover {
+        color: #ccc;
+    }
+    
+    /* bodyがスクロールしないようにするクラス */
+    body.menu-open {
+        overflow: hidden;
+    }
 }

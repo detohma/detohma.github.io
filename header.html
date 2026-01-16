@@ -2,7 +2,7 @@
 <header>
     <div class="header-content">
         <!-- ロゴ（h1タグは各ページ側で管理するため、ここはdivかnav内の画像として扱うのが一般的ですが、リンクのみにします） -->
-        <a href="./" class="logo-link">
+        <a href="/" class="logo-link">
             <img class="header-logo" src="images/detohma_logo_833_143_trans.png" alt="detohma logo">
         </a>
 
@@ -28,5 +28,48 @@
                 </a>
             </div>
         </div>
+
+
+        <div class="hamburger-btn" id="js-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+ <nav class="mobile-menu" id="js-mobile-menu">
+        <!-- リンクエリア（2列グリッド） -->
+        <div class="mobile-menu-links">
+            <a href="/news.html" class="menu-item">
+                <span class="en">NEWS</span>
+                <span class="ja">ニュース</span>
+            </a>
+            <a href="/videos.html" class="menu-item">
+                <span class="en">VIDEOS</span>
+                <span class="ja">ビデオ</span>
+            </a>
+            <a href="/discography.html" class="menu-item">
+                <span class="en">DISCOGRAPHY</span>
+                <span class="ja">ディスコグラフィ</span>
+            </a>
+            <a href="/lyrics_list.html" class="menu-item">
+                <span class="en">LYRICS</span>
+                <span class="ja">歌詞</span>
+            </a>
+            <a href="/profile.html" class="menu-item">
+                <span class="en">PROFILE</span>
+                <span class="ja">プロフィール</span>
+            </a>
+             <!-- 必要であればCONTACTなどを追加 -->
+        </div>
+
+        <!-- SNSアイコンエリア（下部） -->
+        <div class="mobile-menu-socials">
+            <a href="https://www.youtube.com/@detohma" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/58TMYaBoaomqJIVU3InVML" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://music.apple.com/jp/artist/detohma/1731571421" target="_blank"><i class="fa-brands fa-apple"></i></a>
+            <a href="https://www.instagram.com/detohma_band" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com/detohma_band" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.tiktok.com/@detohma_band" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </nav>
 </header>

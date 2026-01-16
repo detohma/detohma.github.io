@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Mini Album 「BlueHaze」 Release Info">
+    <!-- ファビコン：一つ上の階層(../)に戻って探す -->
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新曲「Torch」のTeaser公開 | News | detohma</title>
+    
+    <!-- CSS：一つ上の階層(../)に戻って探す -->
+    <link href="../css/style.css" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/369f8528a6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lobster&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+           
+
+    <div class="NewsDetailPageBody section-for-pages">
+        <div id="NewsInNewsPage">
+            <a href="../news.html"><h2>News</h2></a>
+        </div>
+        <main class="section news-detail">
+            <!-- 記事ヘッダー -->
+            <div class="article-header">
+               <p class="date">2026.1.16</p>
+               <h2>新曲「Torch」のTeaser公開</h2>
+            </div>
+
+            <!-- 記事本文エリア -->
+            <div class="article-content">
+                <p>
+                    2026年1月24日に、シングル「Torch」をリリースいたします。<br>
+                    それに先立ち、「Torch」ミュージックビデオのTeaserを本日公開しました。<br>
+                    ミュージックビデオは1月23日22:00(JST)に、YouTubeにて公開します。
+                </p>
+                
+                
+                <!-- YouTube埋め込み -->
+                <div class="embed-container YTEmbed" style="margin: 30px 0;">
+                    <iframe src="https://www.youtube.com/embed/UzXjFF0amkw" title="Torch Teaser" allowfullscreen></iframe>
+                </div>
+                <!-- <div class="embed-container YTEmbed" style="margin: 30px 0;">
+                    <iframe src="https://www.youtube.com/embed/B0p6NWCDm4w" title="Torch MV" allowfullscreen></iframe>
+                </div> -->
+                <div class="disco-card">
+                    <iframe id="torchTuneCore" src=https://linkco.re/embed/QZMPE5XA width="250" height=600" frameborder="0"></iframe>
+                    <!-- <div class="disco-header">
+                        <p class="release-date">2026.1.24 Release</p>
+                        <h3>Single 「Torch」</h3>
+                    </div>
+                    <div class="disco-body">
+                        <div class="disco-img">
+                            <a href="https://linkco.re/QZMPE5XA" target="_blank">
+                                <img src="../images/Torch_photo_20260108.jpg" alt="Torch Jacket Art">
+                            </a>
+                        </div>
+                        <div class="disco-detail">
+                            <div class="tracklist">
+                                <ol>
+                                    <li>Torch</li>
+                                </ol>
+                            </div>
+                            <div class="streamingLinks">
+                                <a href="https://open.spotify.com/intl-ja/album/04VDUOARDSPHObIh3Mmp5r" target="_blank" class="spotify" aria-label="Spotify">
+                                    <img src="../images/spotify.png" alt="Spotify">
+                                </a>
+                                <a href="https://music.apple.com/jp/album/torch-single/1867739622" target="_blank" class="applemusic" aria-label="Apple Music">
+                                    <img src="../images/applemusic.png" alt="Apple Music">
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+
+
+            <div class="navigation-links">
+
+                <!-- <a class="backToNews" href="../news.html">Back to News</a> -->
+
+                <a class="backToHome" href="../">Back to Home</a>
+            </div>
+        </main>
+    </div>
+
+    <footer id="footer">
+        <ul class="copyright"><li><span>&copy; 2023 detohma</span></li></ul>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ヘッダーファイルも一つ上の階層にあるので ../header.html
+            fetch("../header.html")
+            .then(response => response.text())
+            .then(data => {
+                // 【重要】ヘッダー内の「images/」や「./」という記述を、
+                // このページ用に「../images/」「../」に書き換えてから表示します
+                let fixedData = data
+                    .replace(/src="images\//g, 'src="../images/')
+                    .replace(/href="\.\/"/g, 'href="../"');
+                
+                document.getElementById("header-container").innerHTML = fixedData;
+                initScrollEvent();
+                initHamburgerMenu();
+            });
+        });
+
+        function initScrollEvent() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            window.addEventListener('scroll', () => {
+                window.scrollY > 40 ? header.classList.add('scrolled-header') : header.classList.remove('scrolled-header');
+            });
+        }
+        function initHamburgerMenu() {
+            const hamburger = document.getElementById('js-hamburger');
+            const nav = document.getElementById('js-mobile-menu');
+            const body = document.body;
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    // クラスの着脱（開閉切り替え）
+                    hamburger.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    body.classList.toggle('menu-open'); // 背景固定用
+                });
+
+                // リンクをクリックしたらメニューを閉じる処理
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        body.classList.remove('menu-open');
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+</html>
